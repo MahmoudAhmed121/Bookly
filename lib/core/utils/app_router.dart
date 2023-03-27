@@ -15,5 +15,6 @@ abstract class AppRouter{
       builder: (context, state) => HomeView(),
     ),
   ],
+
 );
 }
