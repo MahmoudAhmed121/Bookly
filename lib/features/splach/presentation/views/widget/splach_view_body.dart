@@ -28,11 +28,6 @@ class _SplachViewBodyState extends State<SplachViewBody> {
     );
   }
 
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Column(
