@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:untitled3/core/utils/assets.dart';
+import 'package:untitled3/features/home/presentation/views/widget/best_seller_list_view.dart';
+
 import 'package:untitled3/features/home/presentation/views/widget/best_seller_list_view_item.dart';
 
 import 'package:untitled3/features/home/presentation/views/widget/custom_app_bar.dart';
@@ -12,30 +12,47 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomAppBar(),
-          SizedBox(
-            height: 35,
+    return CustomScrollView(
+      physics: BouncingScrollPhysics(),
+      slivers: [
+        SliverToBoxAdapter(
+
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomAppBar(),
+                SizedBox(
+                  height: 35,
+                ),
+                FeatureBooksListView(),
+                SizedBox(
+                  height: 25,
+                ),
+                Text(
+                  "Best Seller",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                
+              ],
+            ),
           ),
-          FeatureBooksListView(),
-          SizedBox(
-            height: 25,
+        ),
+        SliverFillRemaining(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: ListViewBestSeller(),
           ),
-          Text(
-            "Best Seller",
-            style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          BestSellerListViewItem()
-        ],
-      ),
+        )
+      ],
     );
   }
 }
