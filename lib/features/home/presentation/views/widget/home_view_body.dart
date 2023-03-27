@@ -16,7 +16,6 @@ class HomeViewBody extends StatelessWidget {
       physics: BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
-
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
@@ -41,7 +40,6 @@ class HomeViewBody extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                
               ],
             ),
           ),
@@ -56,4 +54,3 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
-
