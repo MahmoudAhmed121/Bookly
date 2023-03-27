@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled3/constants.dart';
 import 'package:untitled3/features/splach/presentation/views/splach_view.dart';
 
@@ -14,7 +15,8 @@ class Splac extends StatelessWidget {
     return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: mycolor
+        scaffoldBackgroundColor: mycolor,
+        textTheme: GoogleFonts.montserratTextTheme(),
       ),
       home:const  SplachView(),
     );
