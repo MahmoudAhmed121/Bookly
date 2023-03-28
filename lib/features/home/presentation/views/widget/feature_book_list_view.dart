@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/features/home/presentation/views/widget/custom_container_.dart';
+import 'package:untitled3/features/home/presentation/views/widget/custom_book_container_.dart';
 
 class FeatureBooksListView extends StatelessWidget {
   const FeatureBooksListView({super.key});
@@ -13,7 +13,7 @@ class FeatureBooksListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 4,
         itemBuilder: (context, index) {
-          return CustomContainer();
+          return CustomBookContainer();
         },
       ),
     );

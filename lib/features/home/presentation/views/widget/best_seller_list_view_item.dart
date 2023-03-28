@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:untitled3/core/utils/app_router.dart';
-
 import 'package:untitled3/core/utils/assets.dart';
 import 'package:untitled3/features/home/presentation/views/widget/book_rating.dart';
 
@@ -11,7 +10,7 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         GoRouter.of(context).push(AppRouter.KbookDetailsView);
       },
       child: Row(
@@ -41,24 +40,33 @@ class BestSellerListViewItem extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
-              SizedBox(height: 3,),
-              Text("J.K. Rowling",
-              style: TextStyle(fontSize: 14,
-              color: Color(0xff616161),
+              SizedBox(
+                height: 3,
               ),
+              Text(
+                "J.K. Rowling",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Color(0xff616161),
+                ),
               ),
-               SizedBox(height: 3,),
+              SizedBox(
+                height: 3,
+              ),
               Row(
                 children: [
-                 Text("19.99 €",
-              style: TextStyle(fontSize: 24,
-              color: Colors.white,
-              fontWeight: FontWeight.bold
-              ),
-              ),
-              SizedBox(width: 36.3,),
-              BookRating()
-              ],
+                  Text(
+                    "19.99 €",
+                    style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    width: 36.3,
+                  ),
+                  BookRating()
+                ],
               )
             ],
           )
