@@ -8,7 +8,7 @@ class SearchResultListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: BouncingScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         shrinkWrap: true,
         padding: EdgeInsets.zero,
         itemCount: 10,

@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:untitled3/core/utils/app_router.dart';
 
-
 import 'package:untitled3/core/utils/assets.dart';
-
 
 class SplachViewBody extends StatefulWidget {
   const SplachViewBody({super.key});
@@ -22,9 +20,11 @@ class _SplachViewBodyState extends State<SplachViewBody> {
   }
 
   void navigatHome() {
-    Future.delayed(Duration(seconds: 3), () {
-    GoRouter.of(context).push(AppRouter.Khomepage);
-    },
+    Future.delayed(
+      Duration(seconds: 3),
+      () {
+        GoRouter.of(context).push(AppRouter.Khomepage);
+      },
     );
   }
 
@@ -34,7 +34,7 @@ class _SplachViewBodyState extends State<SplachViewBody> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset(AssetsData.logo ),
+        Image.asset(AssetsData.logo),
       ],
     );
   }

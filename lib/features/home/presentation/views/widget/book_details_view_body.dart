@@ -19,9 +19,13 @@ class BookDetailsViewBody extends StatelessWidget {
       ),
       child: Column(
         children: [
-          SizedBox(height: 25,),
+          SizedBox(
+            height: 25,
+          ),
           CustomAppBarBookDetails(),
-          SizedBox(height: 32,),
+          SizedBox(
+            height: 32,
+          ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 80),
             child: CustomBookContainer(),
@@ -67,12 +71,12 @@ class BookDetailsViewBody extends StatelessWidget {
                   TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
             ),
           ),
-          SizedBox(height: 16,),
+          SizedBox(
+            height: 16,
+          ),
           SimilarBooksListView(),
         ],
       ),
     );
   }
 }
-
-

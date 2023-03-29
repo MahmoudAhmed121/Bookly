@@ -10,11 +10,11 @@ class CustomSearcTextFaild extends StatelessWidget {
       decoration: InputDecoration(
         focusedBorder: build0utlineInputBorder(),
         border: build0utlineInputBorder(),
-       filled: true,
-       fillColor: Color.fromARGB(145, 117, 115, 115),
-     hintStyle:TextStyle(
-      color: Colors.white,
-     ) ,
+        filled: true,
+        fillColor: Color.fromARGB(145, 117, 115, 115),
+        hintStyle: TextStyle(
+          color: Colors.white,
+        ),
         hintText: "search",
         suffixIcon: Opacity(
           opacity: 0.8,

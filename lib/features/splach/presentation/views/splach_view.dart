@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:untitled3/features/splach/presentation/views/widget/splach_view_body.dart';
 
