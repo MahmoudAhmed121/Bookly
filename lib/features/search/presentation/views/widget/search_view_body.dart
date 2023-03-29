@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:untitled3/features/home/presentation/views/widget/best_seller_list_view_item.dart';
+
+import 'package:untitled3/features/search/presentation/views/widget/custom_search_text_faild.dart';
+import 'package:untitled3/features/search/presentation/views/widget/search_result_List_view.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -9,42 +12,26 @@ class SearchViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
-        children: [CustomSearcTextFaild()],
-      ),
-    );
-  }
-}
-
-class CustomSearcTextFaild extends StatelessWidget {
-  const CustomSearcTextFaild({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        focusedBorder: build0utlineInputBorder(),
-        border: build0utlineInputBorder(),
-       filled: true,
-       fillColor: Color.fromARGB(145, 117, 115, 115),
-     hintStyle:TextStyle(
-      color: Colors.white,
-     ) ,
-        hintText: "search",
-        suffixIcon: Opacity(
-          opacity: 0.8,
-          child: Icon(
-            FontAwesomeIcons.magnifyingGlass,
-            size: 24,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomSearcTextFaild(),
+          SizedBox(
+            height: 16,
           ),
-        ),
+          Text(
+            "Search Result",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Expanded(child: SearchResultListView()),
+        ],
       ),
-    );
-  }
-
-  OutlineInputBorder build0utlineInputBorder() {
-    return OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.white),
-      borderRadius: BorderRadius.circular(12),
     );
   }
 }
