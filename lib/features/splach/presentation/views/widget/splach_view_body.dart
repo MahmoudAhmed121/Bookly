@@ -23,7 +23,7 @@ class _SplachViewBodyState extends State<SplachViewBody> {
     Future.delayed(
       Duration(seconds: 3),
       () {
-        GoRouter.of(context).push(AppRouter.Khomepage);
+        GoRouter.of(context).push(AppRouter.kHomeView);
       },
     );
   }

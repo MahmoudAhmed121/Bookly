@@ -1,30 +1,35 @@
+
 import 'package:go_router/go_router.dart';
-import 'package:untitled3/features/home/presentation/views/book_details_view.dart';
-import 'package:untitled3/features/home/presentation/views/home_view.dart';
-import 'package:untitled3/features/search/presentation/views/search_view.dart';
-import 'package:untitled3/features/splach/presentation/views/splach_view.dart';
+
+import '../../features/home/presentation/views/book_details_view.dart';
+import '../../features/home/presentation/views/home_view.dart';
+import '../../features/search/presentation/views/search_view.dart';
+import '../../features/splach/presentation/views/splach_view.dart';
 
 abstract class AppRouter {
-  static const String Khomepage = "/homeView";
-  static const String KbookDetailsView = "/bookDetails";
-  static const String ksearch = "/search";
+  static const kHomeView = '/homeView';
+  static const kBookDetailsView = '/bookDetailsView';
+  static const kSearchView = '/searchView';
+
   static final router = GoRouter(
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => SplachView(),
+        builder: (context, state) => const SplachView(),
       ),
       GoRoute(
-        path: Khomepage,
-        builder: (context, state) => HomeView(),
+        path: kSearchView,
+        builder: (context, state) => const SearchView(),
       ),
       GoRoute(
-        path: KbookDetailsView,
-        builder: (context, state) => BookView(),
+        path: kHomeView,
+        builder: (context, state) => const HomeView(),
       ),
       GoRoute(
-        path: ksearch,
-        builder: (context, state) => SearchView(),
+        path: kBookDetailsView,
+        builder: (context, state) => BookView(
+      
+        ),
       ),
     ],
   );

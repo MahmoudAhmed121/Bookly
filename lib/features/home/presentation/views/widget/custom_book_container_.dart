@@ -12,7 +12,7 @@ class CustomBookContainer extends StatelessWidget {
         width: 170,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AssetsData.test),
+            image: AssetImage(AssetsData.testImage),
           ),
         ),
       ),

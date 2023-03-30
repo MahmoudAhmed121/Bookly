@@ -1,55 +1,98 @@
-import 'dart:math';
+
+import 'package:dartz/dartz.dart';
 
 import 'package:dio/dio.dart';
-import 'package:untitled3/features/home/data/models/Book%20model/book_model.dart';
-import 'package:untitled3/core/utils/errors/failure.dart';
-import 'package:dartz/dartz.dart';
 import 'package:untitled3/features/home/data/repos/home_repo.dart';
 
-class HomeRepoImpl implements HomeRepo {
-  @override
-  Future<Either<Failure, List<BookModel>>> fetchNewsBooks() async {
-    try {
-      final response = await Dio().get(
-          "https://www.googleapis.com/books/v1/volumes?q=subject:Kids&Filtering=free-ebooks");
-      List<BookModel> books = [];
+import '../../../../core/errors/failures.dart';
+import '../../../../core/utils/api_service.dart';
+import '../models/Book model/book_model.dart';
 
-      for (var iteam in response.data["items"]) {
-        books.add(BookModel.fromJson(iteam));
+class HomeRepoImpl implements HomeRepo {
+  final ApiService apiService;
+
+  HomeRepoImpl(this.apiService);
+  @override
+
+
+  Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
+    try {
+      var data = await apiService.get(
+          endPoint:
+              'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        try {
+          books.add(BookModel.fromJson(item));
+        } catch (e) {
+          books.add(BookModel.fromJson(item));
+        }
       }
+
       return right(books);
-    } on DioError catch (e) {
-      if (e.response == 400) {
-        return left(ServerFailure(errorMessage: "${e.message}"));
-      } else if (e.response == 401) {
-        return left(ServerFailure(errorMessage: "${e.message}"));
-      } else if (e.response == 404) {
-        return left(ServerFailure(errorMessage: "${e.message}"));
+    } catch (e) {
+      if (e is DioError) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
       }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
     }
-    return left(ServerFailure(errorMessage: e.toString()));
   }
 
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
-      final response = await Dio().get(
-          "https://www.googleapis.com/books/v1/volumes?q=subject:Kids&Filtering=free-ebooks");
+      var data = await apiService.get(
+          endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming');
       List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
 
-      for (var iteam in response.data["items"]) {
-        books.add(BookModel.fromJson(iteam));
-      }
       return right(books);
-    } on DioError catch (e) {
-      if (e.response == 400) {
-        return left(ServerFailure(errorMessage: "${e.message}"));
-      } else if (e.response == 401) {
-        return left(ServerFailure(errorMessage: "${e.message}"));
-      } else if (e.response == 404) {
-        return left(ServerFailure(errorMessage: "${e.message}"));
+    } catch (e) {
+      if (e is DioError) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
       }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
     }
-    return left(ServerFailure(errorMessage: e.toString()));
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSimilarBooks(
+      {required String category}) async {
+    try {
+      var data = await apiService.get(
+          endPoint:
+              'volumes?Filtering=free-ebooks&Sorting=relevance &q=subject:Programming');
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+
+      return right(books);
+    } catch (e) {
+      if (e is DioError) {
+        return left(
+          ServerFailure.fromDioError(e),
+        );
+      }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
   }
 }

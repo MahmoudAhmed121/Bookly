@@ -11,7 +11,7 @@ class BookListViewIteam extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.KbookDetailsView);
+        GoRouter.of(context).push(AppRouter.kBookDetailsView);
       },
       child: Row(
         children: [
@@ -20,7 +20,7 @@ class BookListViewIteam extends StatelessWidget {
             width: 100,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(AssetsData.test),
+                image: AssetImage(AssetsData.testImage),
               ),
             ),
           ),
