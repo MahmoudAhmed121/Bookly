@@ -5,7 +5,7 @@ import 'package:untitled3/features/home/presentation/views/widget/book_rating.da
 import 'package:untitled3/features/home/presentation/views/widget/books_details_action.dart';
 
 import 'package:untitled3/features/home/presentation/views/widget/custom_book_details_app_bar.dart';
-import 'package:untitled3/features/home/presentation/views/widget/custom_book_container_.dart';
+import 'package:untitled3/features/home/presentation/views/widget/custom_book_image.dart';
 import 'package:untitled3/features/home/presentation/views/widget/similar_books_list_view.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -28,7 +28,7 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 80),
-            child: CustomBookContainer(imageUrl: "https://th.bing.com/th/id/OIP.Z_PIeIRDajXPmZHROt-T_QHaEK?pid=ImgDet&rs=1",),
+            child: CustomBookImage(imageUrl: "https://th.bing.com/th/id/OIP.Z_PIeIRDajXPmZHROt-T_QHaEK?pid=ImgDet&rs=1",),
           ),
           Text(
             "The Jungle Book",
@@ -55,6 +55,8 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           BookRating(
             mainAxisAlignment: MainAxisAlignment.center,
+            count: 5,
+            rating: 8,
           ),
           SizedBox(
             height: 37,

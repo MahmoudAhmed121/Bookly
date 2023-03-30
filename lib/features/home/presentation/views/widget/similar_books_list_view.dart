@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/features/home/presentation/views/widget/custom_book_container_.dart';
+import 'package:untitled3/features/home/presentation/views/widget/custom_book_image.dart';
 
 class SimilarBooksListView extends StatelessWidget {
   const SimilarBooksListView({super.key});
@@ -13,7 +13,7 @@ class SimilarBooksListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return CustomBookContainer(imageUrl: "https://th.bing.com/th/id/OIP.Z_PIeIRDajXPmZHROt-T_QHaEK?pid=ImgDet&rs=1",);
+          return CustomBookImage(imageUrl: "https://th.bing.com/th/id/OIP.Z_PIeIRDajXPmZHROt-T_QHaEK?pid=ImgDet&rs=1",);
         },
       ),
     );

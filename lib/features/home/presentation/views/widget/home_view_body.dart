@@ -10,23 +10,24 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomAppBar(),
-                SizedBox(
-                  height: 35,
-                ),
-                FeatureBooksListView(),
-                SizedBox(
-                  height: 25,
-                ),
-                Text(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                  ),
+                  child: CustomAppBar()),
+              FeatureBooksListView(),
+              SizedBox(
+                height: 50,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
                   "Best Seller",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -34,19 +35,19 @@ class HomeViewBody extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
           ),
         ),
-        SliverToBoxAdapter(
+        const SliverFillRemaining(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 30),
             child: ListViewBestSeller(),
           ),
-        )
+        ),
       ],
     );
   }

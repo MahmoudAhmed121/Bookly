@@ -12,8 +12,8 @@ class NewsetBookInitial extends NewsetBookState {}
 class NewsetBookLoading extends NewsetBookState {}
 
 class NewsetBookSuccess extends NewsetBookState {
-  final List<BookModel> books;
-  const NewsetBookSuccess(this.books);
+  final List<BookModel> book;
+   NewsetBookSuccess(this.book);
 }
 
 class NewsetBookFailure extends NewsetBookState {

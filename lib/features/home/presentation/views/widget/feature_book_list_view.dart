@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:untitled3/core/utils/widget/custom_eroor_widget.dart';
+import 'package:untitled3/core/utils/widget/custom_loading_widget.dart';
 import 'package:untitled3/features/home/presentation/cubit/featured_books_cubit/featured_books_cubit.dart';
-import 'package:untitled3/features/home/presentation/views/widget/custom_book_container_.dart';
+import 'package:untitled3/features/home/presentation/views/widget/custom_book_image.dart';
+
+
 
 class FeatureBooksListView extends StatelessWidget {
   const FeatureBooksListView({super.key});
@@ -21,7 +24,7 @@ class FeatureBooksListView extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: CustomBookContainer(
+                child: CustomBookImage(
                   imageUrl:
                       state.books[index].volumeInfo.imageLinks?.thumbnail ?? "",
                 ),
@@ -30,9 +33,19 @@ class FeatureBooksListView extends StatelessWidget {
           ),
         );
       } else if (state is FeaturedBooksFailure) {
-        return CustomError();
+        return CustomError(messageError: state.errorMessage,);
       } else {
-        return Center(child: CircularProgressIndicator());
+        return SizedBox(
+          height: MediaQuery.of(context).size.height * .3,
+          child: ListView.builder(
+            physics: BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return CustomLoading(heigh: 200, width: 170);
+            },
+          ),
+        );
       }
     });
   }

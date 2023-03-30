@@ -13,7 +13,7 @@ class SearchResultListView extends StatelessWidget {
         padding: EdgeInsets.zero,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return BookListViewIteam();
+          return Text("");
         });
   }
 }

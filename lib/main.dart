@@ -22,9 +22,12 @@ class Splac extends StatelessWidget {
       providers: [
         BlocProvider(
             create: (context) =>
-                FeaturedBooksCubit(HomeRepoImpl()..fetchFeaturedBooks())
+                FeaturedBooksCubit(HomeRepoImpl())
                   ..getData()),
-        BlocProvider(create: (context) => NewsetBookCubit()),
+        BlocProvider(
+          create: (context) =>
+              NewsetBookCubit(HomeRepoImpl())..getdata(),
+        ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

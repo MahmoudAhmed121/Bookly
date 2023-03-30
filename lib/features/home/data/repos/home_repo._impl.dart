@@ -27,15 +27,17 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
       final response = await Dio().get(
-          "https://www.googleapis.com/books/v1/volumes?Filtering=free-ebooks&q=subject:Kids&sorting");
+          "https://www.googleapis.com/books/v1/volumes?Filtering=free-ebooks&q=Computer scinse");
       List<BookModel> books = [];
 
       for (var iteam in response.data["items"]) {
         books.add(BookModel.fromJson(iteam));
+      
       }
       return right(books);
     } catch (e) {
       if (e is DioError) {
+      
         return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));

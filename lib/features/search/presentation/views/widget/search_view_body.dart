@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled3/features/home/presentation/views/widget/best_seller_list_view_item.dart';
+
 
 import 'package:untitled3/features/search/presentation/views/widget/custom_search_text_faild.dart';
 import 'package:untitled3/features/search/presentation/views/widget/search_result_List_view.dart';
