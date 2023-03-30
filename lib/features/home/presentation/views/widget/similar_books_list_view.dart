@@ -13,7 +13,7 @@ class SimilarBooksListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return CustomBookContainer();
+          return CustomBookContainer(imageUrl: "https://th.bing.com/th/id/OIP.Z_PIeIRDajXPmZHROt-T_QHaEK?pid=ImgDet&rs=1",);
         },
       ),
     );

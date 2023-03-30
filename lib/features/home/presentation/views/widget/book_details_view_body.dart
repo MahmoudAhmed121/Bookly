@@ -28,7 +28,7 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 80),
-            child: CustomBookContainer(),
+            child: CustomBookContainer(imageUrl: "https://th.bing.com/th/id/OIP.Z_PIeIRDajXPmZHROt-T_QHaEK?pid=ImgDet&rs=1",),
           ),
           Text(
             "The Jungle Book",

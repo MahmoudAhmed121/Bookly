@@ -11,7 +11,7 @@ class ServerFailure extends Failure {
 
   factory ServerFailure.fromDioError(DioError dioError) {
     switch (dioError.type) {
-      case DioErrorType.connectionTimeout:
+      case DioErrorType.connectTimeout:
         return ServerFailure('Connection timeout with ApiServer');
 
       case DioErrorType.sendTimeout:
@@ -20,6 +20,17 @@ class ServerFailure extends Failure {
       case DioErrorType.receiveTimeout:
         return ServerFailure('Receive timeout with ApiServer');
 
+      case DioErrorType.response:
+        return ServerFailure.fromResponse(
+            dioError.response!.statusCode, dioError.response!.data);
+      case DioErrorType.cancel:
+        return ServerFailure('Request to ApiServer was canceld');
+
+      case DioErrorType.other:
+        if (dioError.message.contains('SocketException')) {
+          return ServerFailure('No Internet Connection');
+        }
+        return ServerFailure('Unexpected Error, Please try again!');
       default:
         return ServerFailure('Opps There was an Error, Please try again');
     }
