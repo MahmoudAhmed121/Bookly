@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class CustomLoading extends StatelessWidget {
-  const CustomLoading({
-    this.scrollDirecation =Axis.horizontal,
-    super.key,
-    required this.heigh,
-    required this.width,
-  });
-  final scrollDirecation ;
-  final double heigh;
-  final double width;
+class CustomLoadingForfeature extends StatelessWidget {
+  const CustomLoadingForfeature();
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        scrollDirection:scrollDirecation,
+        scrollDirection: Axis.horizontal,
         shrinkWrap: true,
         padding: EdgeInsets.zero,
         physics: BouncingScrollPhysics(),
@@ -27,8 +20,8 @@ class CustomLoading extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Container(
-                height: heigh,
-                width: width,
+                height: 200,
+                width: 170,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     color: Colors.grey),

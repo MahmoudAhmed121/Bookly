@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
-import 'package:untitled3/core/utils/app_router.dart';
+import 'package:untitled3/core/utils/route/app_router.dart';
 import 'package:untitled3/features/home/data/models/book_model/book_model.dart';
 import 'package:untitled3/features/home/presentation/views/widget/custom_book_image.dart';
 
@@ -14,13 +14,15 @@ class BookListViewItem extends StatelessWidget {
   const BookListViewItem({super.key, required this.bookModel});
 
   final BookModel bookModel;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(
           AppRouter.KbookDetailsView,
-          extra: bookModel,
+         extra: bookModel,
+         
         );
       },
       child: SizedBox(
@@ -28,6 +30,7 @@ class BookListViewItem extends StatelessWidget {
         child: Row(
           children: [
             CustomBookImage(
+
                 imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
             const SizedBox(
               width: 30,

@@ -11,7 +11,7 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       final response = await Dio().get(
-          "https://www.googleapis.com/books/v1/volumes?Filtering=free-ebooks&q=subject:Kids");
+          "https://www.googleapis.com/books/v1/volumes?sorting=relevence&Filtering=free-ebooks&q=subject:drama");
 
       List<BookModel> books = [];
       for (var iteam in response.data["items"]) {
@@ -27,7 +27,28 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
       final response = await Dio().get(
-          "https://www.googleapis.com/books/v1/volumes?Filtering=free-ebooks&q=Computer scinse");
+          "https://www.googleapis.com/books/v1/volumes?sorting=relevence&Filtering=free-ebooks&q=subject:fiction");
+      List<BookModel> books = [];
+
+      for (var iteam in response.data["items"]) {
+        books.add(BookModel.fromJson(iteam));
+      
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioError) {
+      
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+  
+  @override
+  Future<Either<Failure, List<BookModel>>> featchSimilarBooks({required String category})async {
+     try {
+      final response = await Dio().get(
+          "https://www.googleapis.com/books/v1/volumes?sorting=relevence&Filtering=free-ebooks&q=subject:zombies");
       List<BookModel> books = [];
 
       for (var iteam in response.data["items"]) {

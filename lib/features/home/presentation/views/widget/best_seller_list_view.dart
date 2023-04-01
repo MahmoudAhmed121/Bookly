@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer/shimmer.dart';
+
 import 'package:untitled3/core/utils/widget/custom_eroor_widget.dart';
-import 'package:untitled3/core/utils/widget/custom_loading_widget.dart';
+import 'package:untitled3/core/utils/shimmer/custom_loading_best_sellr.dart';
+
 import 'package:untitled3/features/home/presentation/cubit/newes_book_cubit/newset_book_cubit.dart';
 import 'package:untitled3/features/home/presentation/views/widget/best_seller_list_view_item.dart';
-import 'package:untitled3/features/home/presentation/views/widget/custom_book_image.dart';
+
 
 class ListViewBestSeller extends StatelessWidget {
   const ListViewBestSeller({super.key});
@@ -31,10 +32,8 @@ class ListViewBestSeller extends StatelessWidget {
             messageError: state.errorMessage,
           );
         } else {
-          return CustomLoading(
-            heigh: 100,
-            width: 100,
-            scrollDirecation: Axis.vertical,
+          return ShimmerListView(
+           
           );
         }
       },

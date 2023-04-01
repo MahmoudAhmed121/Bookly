@@ -1,15 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/material.dart';
-import 'package:untitled3/core/utils/widget/custom_loading_widget.dart';
+import 'package:untitled3/core/utils/shimmer/custom_loading_feature.dart';
 
 
 class CustomBookImage extends StatelessWidget {
-  const CustomBookImage({
+   CustomBookImage({
+
     super.key,
     required this.imageUrl,
+    
   });
   final imageUrl;
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -20,9 +23,8 @@ class CustomBookImage extends StatelessWidget {
           fit: BoxFit.fill,
           imageUrl: imageUrl,
           errorWidget: (context, url, error) => Icon(Icons.abc),
-          placeholder: (context, url) => CustomLoading(
-            heigh: 200,
-            width: 170
+          placeholder: (context, url) => CustomLoadingForfeature(
+          
           ),
         ),
       ),

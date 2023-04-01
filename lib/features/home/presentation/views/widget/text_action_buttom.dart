@@ -7,13 +7,14 @@ class CustomButoom extends StatelessWidget {
     required this.backgroundColor,
     required this.TextColer,
     this.borderRadius,
-    this.fontsize,
+    this.fontsize, required this.onPressed,
   });
   final Color backgroundColor;
   final Color TextColer;
   final BorderRadius? borderRadius;
   final String text;
   final double? fontsize;
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -24,7 +25,7 @@ class CustomButoom extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: borderRadius ?? BorderRadius.circular(15),
             )),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           text,
           style: TextStyle(

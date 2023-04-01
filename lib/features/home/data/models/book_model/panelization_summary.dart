@@ -17,9 +17,9 @@ class PanelizationSummary extends Equatable {
   }
 
   Map<String, dynamic> toJson() => {
-        'containsEpubBubbles': containsEpubBubbles,
-        'containsImageBubbles': containsImageBubbles,
-      };
+    'containsEpubBubbles': containsEpubBubbles,
+    'containsImageBubbles': containsImageBubbles,
+  };
 
   @override
   List<Object?> get props => [containsEpubBubbles, containsImageBubbles];
