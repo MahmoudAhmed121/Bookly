@@ -45,7 +45,7 @@ class BookListViewItem extends StatelessWidget {
                       bookModel.volumeInfo.title!,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 20,
+                      style:const TextStyle(fontSize: 20,
                       color: Colors.white
                       ),
                     ),
@@ -55,7 +55,7 @@ class BookListViewItem extends StatelessWidget {
                   ),
                   Text(
                     bookModel.volumeInfo.authors![0],
-                   style: TextStyle(fontSize: 14,
+                   style:const TextStyle(fontSize: 14,
                    color: Color(0xff616161,
                    ),
                    fontWeight: FontWeight.bold
@@ -66,7 +66,7 @@ class BookListViewItem extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text(
+                     const Text(
                         'Free',
                       style: TextStyle(fontSize: 20,
                    color: Colors.white,

@@ -8,7 +8,7 @@ import 'package:untitled3/features/home/presentation/views/widget/custom_app_bar
 import 'package:untitled3/features/home/presentation/views/widget/feature_book_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
-   HomeViewBody({super.key, });
+ const  HomeViewBody({super.key, });
 
   @override
   Widget build(BuildContext context) {

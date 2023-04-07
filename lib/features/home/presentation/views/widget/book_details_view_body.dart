@@ -14,49 +14,48 @@ class BookDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 30,
         ),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
-            CustomAppBarBookDetails(),
-            SizedBox(
+            const CustomAppBarBookDetails(),
+            const SizedBox(
               height: 32,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 80),
               child: CustomBookImage(
-                
                 imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? "",
               ),
             ),
             Text(
               bookModel.volumeInfo.title!,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 30,
                 color: Colors.white,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Opacity(
               opacity: 0.7,
               child: Text(
                 bookModel.volumeInfo.authors?[0] ?? "",
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   color: Color(0xff707070),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             BookRating(
@@ -64,14 +63,14 @@ class BookDetailsViewBody extends StatelessWidget {
               count: bookModel.volumeInfo.ratingsCount ?? 2123,
               rating: bookModel.volumeInfo.ratingsCount ?? 4.2,
             ),
-            SizedBox(
+            const SizedBox(
               height: 37,
             ),
             BooksAction(bookModel: bookModel),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 "You can also like",
@@ -79,11 +78,11 @@ class BookDetailsViewBody extends StatelessWidget {
                     TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
-            SimilarBooksListView(),
-            SizedBox(
+            const SimilarBooksListView(),
+            const SizedBox(
               height: 20,
             )
           ],

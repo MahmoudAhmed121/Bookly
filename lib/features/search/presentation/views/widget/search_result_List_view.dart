@@ -9,14 +9,14 @@ import 'package:untitled3/features/search/presentation/cubit/cubit/search_cubit.
 import '../../../../home/presentation/views/widget/best_seller_list_view_item.dart';
 
 class SearchResultListView extends StatelessWidget {
-  const SearchResultListView({super.key, this.character});
-  final character;
+  const SearchResultListView({super.key});
+ 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchCubit, SearchState>(builder: (context, state) {
       if (state is SearchSuccess) {
         return ListView.separated(
-          padding: EdgeInsets.symmetric(vertical: 10.0),
+          padding:const EdgeInsets.symmetric(vertical: 10.0),
           itemCount: state.books.length,
           physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) => InkWell(
@@ -28,13 +28,13 @@ class SearchResultListView extends StatelessWidget {
             },
             child: BookListViewItem(bookModel: state.books[index]),
           ),
-          separatorBuilder: (context, index) => SizedBox(height: 15.0),
+          separatorBuilder: (context, index) => const SizedBox(height: 15.0),
         );
       }
       if (state is SearchFailure) {
         return CustomError(messageError: state.errorMessage);
       } else {
-        return ShimmerSearch();
+        return const ShimmerSearch();
       } 
     });
   }

@@ -18,11 +18,11 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => SplachView(),
+        builder: (context, state) => const SplachView(),
       ),
       GoRoute(
         path: KHomepage,
-        builder: (context, state) => HomeView(),
+        builder: (context, state) =>const HomeView(),
       ),
       GoRoute(
         path: KbookDetailsView,
@@ -37,7 +37,7 @@ abstract class AppRouter {
         builder: (context, state) => BlocProvider(
           create: (context) =>
               SearchCubit(SearchDataImpl())..fetchSearchedBooks(bookName: ""),
-          child: SearchView(),
+          child:const SearchView(),
         ),
       ),
     ],

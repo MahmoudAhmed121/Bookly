@@ -10,7 +10,7 @@ class CustomButoom extends StatelessWidget {
     this.fontsize, required this.onPressed,
   });
   final Color backgroundColor;
-  final Color TextColer;
+  final Color  TextColer;
   final BorderRadius? borderRadius;
   final String text;
   final double? fontsize;

@@ -12,7 +12,7 @@ class NewsetBookLoading extends SimilarBooksState {}
 
 class SimilarBooksSuccess extends SimilarBooksState {
   final List<BookModel> book;
-   SimilarBooksSuccess(this.book);
+ const  SimilarBooksSuccess(this.book);
 }
 
 class SimilarBooksFailure extends SimilarBooksState {

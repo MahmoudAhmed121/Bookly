@@ -8,7 +8,7 @@ class CustomError extends StatelessWidget {
     return Center(
       child: Text(
         messageError,
-        style: TextStyle(
+        style:const TextStyle(
           fontSize: 18,
           color: Colors.white,
         ),

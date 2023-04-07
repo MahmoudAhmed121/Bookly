@@ -13,7 +13,7 @@ class SearchViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children:const [
           CustomSearcTextFaild(),
           SizedBox(
             height: 16,

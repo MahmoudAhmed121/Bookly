@@ -14,24 +14,24 @@ class BookRating extends StatelessWidget {
     return Row(
       mainAxisAlignment: mainAxisAlignment,
       children: [
-        Icon(
+      const  Icon(
           FontAwesomeIcons.solidStar,
           color: Color(0xffFFDD4F),
           size: 12,
         ),
-        SizedBox(
+      const  SizedBox(
           width: 5,
         ),
         Text(
           rating.toString(),
           style: TextStyle(fontSize: 16, color: Colors.white),
         ),
-        SizedBox(
+     const   SizedBox(
           width: 5,
         ),
         Text(
           count.toString(),
-          style: TextStyle(
+          style:const TextStyle(
             color: Color(0xff707070),
           ),
         ),

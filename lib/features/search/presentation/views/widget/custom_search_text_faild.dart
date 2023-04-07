@@ -18,12 +18,12 @@ class CustomSearcTextFaild extends StatelessWidget {
         focusedBorder: build0utlineInputBorder(),
         border: build0utlineInputBorder(),
         filled: true,
-        fillColor: Color.fromARGB(145, 117, 115, 115),
-        hintStyle: TextStyle(
+        fillColor:const Color.fromARGB(145, 117, 115, 115),
+        hintStyle: const TextStyle(
           color: Colors.white,
         ),
         hintText: "search",
-        suffixIcon: Opacity(
+        suffixIcon:const Opacity(
           opacity: 0.8,
           child: Icon(
             FontAwesomeIcons.magnifyingGlass,

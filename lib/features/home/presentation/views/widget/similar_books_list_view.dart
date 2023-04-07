@@ -18,7 +18,7 @@ class SimilarBooksListView extends StatelessWidget {
           return SizedBox(
             height: MediaQuery.of(context).size.height * .17,
             child: ListView.builder(
-              physics: BouncingScrollPhysics(),
+              physics:const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.book.length,
               itemBuilder: (context, index) {

@@ -21,7 +21,7 @@ class _SplachViewBodyState extends State<SplachViewBody> {
 
   void navigatHome() {
     Future.delayed(
-      Duration(seconds: 3),
+     const Duration(seconds: 3),
       () {
         GoRouter.of(context).pushReplacement(AppRouter.KHomepage);
       },
