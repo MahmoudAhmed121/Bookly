@@ -10,15 +10,16 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
   FeaturedBooksCubit(this.homeRepoImpl) : super(FeaturedBooksInitial());
   HomeRepoImpl homeRepoImpl;
 
-  void getData() async {
-    final data = await homeRepoImpl.fetchFeaturedBooks();
+  void getData({int pageNumber =0}) async {
+    final data = await homeRepoImpl.fetchFeaturedBooks(pageNumber: pageNumber);
 
     emit(FeaturedBooksLoading());
 
-    data.fold((failuer) {
+   data.fold((failuer) {
       emit(FeaturedBooksFailure(failuer.errMessage));
     }, (books) {
       emit(FeaturedBooksSuccess(books.cast<BookModel>()));
     });
+
   }
 }

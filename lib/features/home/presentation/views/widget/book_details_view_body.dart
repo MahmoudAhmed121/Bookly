@@ -29,7 +29,7 @@ class BookDetailsViewBody extends StatelessWidget {
               height: 32,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 80),
+              padding:const EdgeInsets.symmetric(horizontal: 80),
               child: CustomBookImage(
                 imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? "",
               ),

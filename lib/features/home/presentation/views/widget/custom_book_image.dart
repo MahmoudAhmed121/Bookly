@@ -24,7 +24,7 @@ class CustomBookImage extends StatelessWidget {
           imageUrl: imageUrl,
           errorWidget: (context, url, error) =>const Icon(Icons.abc),
           placeholder: (context, url) => const CustomLoadingForfeature(
-          
+ 
           ),
         ),
       ),

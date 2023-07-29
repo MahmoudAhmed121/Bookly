@@ -17,10 +17,10 @@ class SearchCubit extends Cubit<SearchState> {
 
   static SearchCubit get(BuildContext context) => BlocProvider.of(context);
 
-  Future<void> fetchSearchedBooks({required String bookName}) async {
+  Future<void> fetchSearchedBooks() async {
     emit(SearchLoading());
 
-    var result = await searchData.searchData(bookName: bookName);
+    var result = await searchData.searchData(bookName: controller.text);
     result.fold((failure) {
       emit(SearchFailure(failure.errMessage));
     }, (books) {

@@ -6,8 +6,6 @@ import 'package:untitled3/core/utils/shimmer/custom_loading_best_sellr.dart';
 
 import 'package:untitled3/features/home/presentation/cubit/newes_book_cubit/newset_book_cubit.dart';
 import 'package:untitled3/features/home/presentation/views/widget/best_seller_list_view_item.dart';
-
-
 class ListViewBestSeller extends StatelessWidget {
   const ListViewBestSeller({super.key});
 

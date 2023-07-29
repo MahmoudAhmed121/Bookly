@@ -8,16 +8,18 @@ import 'home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks({int pageNumber = 0}) async {
     try {
       final response = await Dio().get(
-          "https://www.googleapis.com/books/v1/volumes?sorting=relevence&Filtering=free-ebooks&q=subject:drama");
+          "https://www.googleapis.com/books/v1/volumes?sorting=relevence&Filtering=free-ebooks&q=subject:drama&startIndex=${pageNumber * 10}");
 
       List<BookModel> books = [];
       for (var iteam in response.data["items"]) {
         books.add(BookModel.fromJson(iteam));
       }
       return right(books);
+
+      
     } on DioError catch (e) {
       return left(ServerFailure.fromDioError(e));
     }
@@ -61,7 +63,7 @@ class HomeRepoImpl implements HomeRepo {
       
         return left(ServerFailure.fromDioError(e));
       }
-      return left(ServerFailure(e.toString()));
+      return left(ServerFailure(e.toString())); 
     }
   }
 }

@@ -10,7 +10,7 @@ class CustomSearcTextFaild extends StatelessWidget {
     return TextField(
       onEditingComplete: (){
         if(SearchCubit.get(context).controller.text.isNotEmpty){
-          SearchCubit.get(context).fetchSearchedBooks(bookName: SearchCubit.get(context).controller.text);
+          SearchCubit.get(context).fetchSearchedBooks();
         }
       },
       controller: SearchCubit.get(context).controller,
@@ -36,7 +36,7 @@ class CustomSearcTextFaild extends StatelessWidget {
 
   OutlineInputBorder build0utlineInputBorder() {
     return OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.white),
+      borderSide: const BorderSide(color: Colors.white),
       borderRadius: BorderRadius.circular(12),
     );
   }

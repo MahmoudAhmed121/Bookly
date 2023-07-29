@@ -10,6 +10,8 @@ part 'newset_book_state.dart';
 class NewsetBookCubit extends Cubit<NewsetBookState> {
   NewsetBookCubit(this.homeRepoImpl) : super(NewsetBookInitial());
   HomeRepoImpl homeRepoImpl;
+
+  
   Future<void> getdata() async {
     final data = await homeRepoImpl.fetchNewsetBooks();
 

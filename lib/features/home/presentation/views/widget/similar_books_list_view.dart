@@ -26,11 +26,11 @@ class SimilarBooksListView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: GestureDetector(
                     onTap: ()async{
-                        final Uri _url = Uri.parse("https://www.google.com.eg/books/edition/Rabid_Heart/UpdlDwAAQBAJ?hl=ar&gbpv=1&dq=zombie+rabid&printsec=frontcover");
-                if (await canLaunchUrl(_url)) {
-                  await launchUrl(_url);
+                        final Uri url = Uri.parse("https://www.google.com.eg/books/edition/Day_by_Day_Armageddon_Origin_to_Exile/sE9pkCGLmF0C?hl=ar&gbpv=1&dq=day+By+Day+ArmaGeddon&printsec=frontcover");
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
                 }else{
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("cannot lunch $_url")));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("cannot lunch $url")));
                 }
                     },
                     child: CustomBookImage(
@@ -46,7 +46,7 @@ class SimilarBooksListView extends StatelessWidget {
         } else if (state is SimilarBooksFailure) {
           return CustomError(messageError: state.errorMessage);
         } else {
-          return ShimmerListView();
+          return const ShimmerListView();
         }
       },
     );

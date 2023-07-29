@@ -36,7 +36,7 @@ abstract class AppRouter {
         path: ksearch,
         builder: (context, state) => BlocProvider(
           create: (context) =>
-              SearchCubit(SearchDataImpl())..fetchSearchedBooks(bookName: ""),
+              SearchCubit(SearchDataImpl())..fetchSearchedBooks(),
           child:const SearchView(),
         ),
       ),

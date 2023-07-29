@@ -43,7 +43,6 @@ dependencies:
   go_router: ^6.5.0
   google_fonts: ^4.0.3
   lottie: ^2.3.1
-  pro_shered_preference: ^0.0.7
   shimmer: ^2.0.0
   url_launcher: ^6.1.10
 

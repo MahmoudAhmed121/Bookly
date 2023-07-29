@@ -14,12 +14,11 @@ class FeatureBooksListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
         builder: (context, state) {
-          
       if (state is FeaturedBooksSuccess) {
         return SizedBox(
           height: MediaQuery.of(context).size.height * .3,
           child: ListView.builder(
-            physics:const BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: state.books.length,
             itemBuilder: (context, index) {
@@ -33,7 +32,6 @@ class FeatureBooksListView extends StatelessWidget {
                     );
                   },
                   child: CustomBookImage(
-                  
                     imageUrl:
                         state.books[index].volumeInfo.imageLinks?.thumbnail ??
                             "",
