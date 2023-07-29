@@ -22,7 +22,7 @@ class SearchResultListView extends StatelessWidget {
           itemBuilder: (context, index) => InkWell(
             onTap: () {
               GoRouter.of(context).push(
-                AppRouter.KbookDetailsView,
+                AppRouter.kbookDetailsView,
                 extra: state.books[index],
               );
             },

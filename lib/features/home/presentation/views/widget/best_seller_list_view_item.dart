@@ -20,7 +20,7 @@ class BookListViewItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(
-          AppRouter.KbookDetailsView,
+          AppRouter.kbookDetailsView,
          extra: bookModel,
          
         );

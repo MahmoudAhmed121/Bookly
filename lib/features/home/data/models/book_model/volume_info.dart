@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'image_links.dart';
 part 'volume_info.g.dart';
+
 @HiveType(typeId: 1)
 class VolumeInfo extends Equatable {
   @HiveField(0)
@@ -14,7 +15,7 @@ class VolumeInfo extends Equatable {
   final num? averageRating;
   @HiveField(4)
   final int? ratingsCount;
-
+  @HiveField(5)
   final ImageLinks? imageLinks;
   const VolumeInfo({
     this.title,

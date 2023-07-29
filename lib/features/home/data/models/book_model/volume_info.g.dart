@@ -29,7 +29,7 @@ class VolumeInfoAdapter extends TypeAdapter<VolumeInfo> {
   @override
   void write(BinaryWriter writer, VolumeInfo obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -40,6 +40,7 @@ class VolumeInfoAdapter extends TypeAdapter<VolumeInfo> {
       ..write(obj.averageRating)
       ..writeByte(4)
       ..write(obj.ratingsCount)
+      ..writeByte(5)
       ..write(obj.imageLinks);
   }
 

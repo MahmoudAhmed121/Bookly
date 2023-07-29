@@ -1,25 +1,40 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
+import 'package:untitled3/constants.dart';
 import 'package:untitled3/core/utils/errors/failure.dart';
-import 'package:dartz/dartz.dart';
+import 'package:untitled3/core/utils/func/book_fun.dart';
 import 'package:untitled3/features/home/data/models/book_model/book_model.dart';
+import 'package:untitled3/features/home/data/repos/home_local_repo.dart';
 
-import 'home_repo.dart';
+import 'home_remote_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
+  HomeLocalRepo homeLocalRepo;
+  HomeRepoImpl({
+    required this.homeLocalRepo,
+  });
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks({int pageNumber = 0}) async {
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks(
+      {int pageNumber = 0}) async {
     try {
       final response = await Dio().get(
           "https://www.googleapis.com/books/v1/volumes?sorting=relevence&Filtering=free-ebooks&q=subject:drama&startIndex=${pageNumber * 10}");
 
-      List<BookModel> books = [];
-      for (var iteam in response.data["items"]) {
-        books.add(BookModel.fromJson(iteam));
-      }
-      return right(books);
+      List<dynamic> booksDynamic = response.data["items"];
+      List<BookModel> bookModel =
+          booksDynamic.map((e) => BookModel.fromJson(e)).toList();
 
-      
+      bookBox(bookModel, kBookModelBook);
+
+      var myBookBox = homeLocalRepo.fetchFeaturedBooks(pageNumber: pageNumber);
+
+      if (myBookBox.isNotEmpty) {
+        print(myBookBox.toString());
+        return right(myBookBox);
+      }
+      return right(bookModel);
     } on DioError catch (e) {
       return left(ServerFailure.fromDioError(e));
     }
@@ -34,36 +49,33 @@ class HomeRepoImpl implements HomeRepo {
 
       for (var iteam in response.data["items"]) {
         books.add(BookModel.fromJson(iteam));
-      
       }
       return right(books);
     } catch (e) {
       if (e is DioError) {
-      
         return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
   }
-  
+
   @override
-  Future<Either<Failure, List<BookModel>>> featchSimilarBooks({required String category})async {
-     try {
+  Future<Either<Failure, List<BookModel>>> featchSimilarBooks(
+      {required String category}) async {
+    try {
       final response = await Dio().get(
           "https://www.googleapis.com/books/v1/volumes?sorting=relevence&Filtering=free-ebooks&q=subject:zombies");
       List<BookModel> books = [];
 
       for (var iteam in response.data["items"]) {
         books.add(BookModel.fromJson(iteam));
-      
       }
       return right(books);
     } catch (e) {
       if (e is DioError) {
-      
         return left(ServerFailure.fromDioError(e));
       }
-      return left(ServerFailure(e.toString())); 
+      return left(ServerFailure(e.toString()));
     }
   }
 }

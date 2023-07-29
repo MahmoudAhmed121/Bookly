@@ -17,6 +17,7 @@ class FeatureBooksListView extends StatefulWidget {
 class _FeatureBooksListViewState extends State<FeatureBooksListView> {
   late ScrollController scrollController;
   var nextPage = 1;
+  bool isLading = false;
   @override
   void initState() {
     scrollController = ScrollController();
@@ -26,12 +27,18 @@ class _FeatureBooksListViewState extends State<FeatureBooksListView> {
     super.initState();
   }
 
-  void _scrollController() {
+  void _scrollController() async {
     var curantPosition = scrollController.position.pixels;
     var maxScroll = scrollController.position.maxScrollExtent;
 
     if (curantPosition >= 0.7 * maxScroll) {
-      FeaturedBooksCubit.get(context).getData(pageNumber: nextPage++);
+      if (!isLading) {
+    
+        isLading = true;
+      
+        await FeaturedBooksCubit.get(context).getData(pageNumber: nextPage++);
+        isLading = false;
+      }
     }
   }
 
@@ -59,7 +66,7 @@ class _FeatureBooksListViewState extends State<FeatureBooksListView> {
                 child: GestureDetector(
                   onTap: () {
                     GoRouter.of(context).push(
-                      AppRouter.KbookDetailsView,
+                      AppRouter.kbookDetailsView,
                       extra: state.books[index],
                     );
                   },

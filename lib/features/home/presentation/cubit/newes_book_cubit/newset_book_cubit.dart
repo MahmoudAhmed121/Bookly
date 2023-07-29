@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:untitled3/features/home/data/models/book_model/book_model.dart';
 
 
-import 'package:untitled3/features/home/data/repos/home_repo._impl.dart';
+import 'package:untitled3/features/home/data/repos/home_remote_repo._impl.dart';
 
 part 'newset_book_state.dart';
 
