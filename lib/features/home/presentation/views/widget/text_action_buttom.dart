@@ -5,12 +5,12 @@ class CustomButoom extends StatelessWidget {
     required this.text,
     super.key,
     required this.backgroundColor,
-    required this.TextColer,
+    required this.textColer,
     this.borderRadius,
     this.fontsize, required this.onPressed,
   });
   final Color backgroundColor;
-  final Color  TextColer;
+  final Color  textColer;
   final BorderRadius? borderRadius;
   final String text;
   final double? fontsize;
@@ -30,7 +30,7 @@ class CustomButoom extends StatelessWidget {
           text,
           style: TextStyle(
             fontSize: fontsize,
-            color: TextColer,
+            color: textColer,
             fontWeight: FontWeight.bold,
           ),
         ),

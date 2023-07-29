@@ -16,16 +16,16 @@ class BooksAction extends StatelessWidget {
             child: CustomButoom(
               onPressed: () async {
                 
-                 final Uri _url = Uri.parse("https://openlibrary.org/");
-                if (await canLaunchUrl(_url)) {
-                  await launchUrl(_url);
+                 final Uri url = Uri.parse("https://openlibrary.org/");
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
                 }else{
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("cannot lunch $_url")));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("cannot lunch $url")));
                 }
               },
               fontsize: 18,
               text: "19.99€",
-              TextColer: Colors.black,
+              textColer: Colors.black,
               backgroundColor: Colors.white,
               borderRadius:const BorderRadius.only(
                 topLeft: Radius.circular(16),
@@ -36,17 +36,17 @@ class BooksAction extends StatelessWidget {
           Expanded(
             child: CustomButoom(
               onPressed: () async {
-                final Uri _url = Uri.parse("https://www.google.com.eg/books/edition/Thor_Vs_Hulk/0KEuDwAAQBAJ?hl=ar&gbpv=1&dq=hulk+vs+thor&printsec=frontcover");
-                if (await canLaunchUrl(_url)) {
-                  await launchUrl(_url);
+                final Uri url = Uri.parse("https://www.google.com.eg/books/edition/Thor_Vs_Hulk/0KEuDwAAQBAJ?hl=ar&gbpv=1&dq=hulk+vs+thor&printsec=frontcover");
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
                 }else{
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("cannot lunch $_url")));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("cannot lunch $url")));
                 }
               },
               fontsize: 16,
               text: "Free preview",
-              TextColer: Colors.white,
-              backgroundColor: Color(0xffEF8262),
+              textColer: Colors.white,
+              backgroundColor: const Color(0xffEF8262),
               borderRadius:const BorderRadius.only(
                 topRight: Radius.circular(16),
                 bottomRight: Radius.circular(16),

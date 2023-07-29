@@ -14,23 +14,26 @@ class ListViewBestSeller extends StatelessWidget {
     return BlocBuilder<NewsetBookCubit, NewsetBookState>(
       builder: (context, state) {
         if (state is NewsetBookSuccess) {
-          return ListView.builder(
-              scrollDirection: Axis.vertical,
-              padding: EdgeInsets.zero,
-              physics:const NeverScrollableScrollPhysics(),
-              itemCount: state.book.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  child: BookListViewItem(bookModel: state.book[index]),
-                );
-              });
+          return SizedBox(
+           height: 172,
+            child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                padding: EdgeInsets.zero,
+                physics:const NeverScrollableScrollPhysics(),
+                itemCount: state.book.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    child: BookListViewItem(bookModel: state.book[index]),
+                  );
+                }),
+          );
         } else if (state is NewsetBookFailure) {
           return CustomError(
             messageError: state.errorMessage,
           );
         } else {
-          return ShimmerListView(
+          return const ShimmerListView(
            
           );
         }

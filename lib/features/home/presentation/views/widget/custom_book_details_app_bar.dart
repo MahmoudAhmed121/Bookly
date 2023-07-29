@@ -13,7 +13,7 @@ class CustomAppBarBookDetails extends StatelessWidget {
           onPressed: () {
             GoRouter.of(context).pop();
           },
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: const Icon(Icons.arrow_back_ios_new),
         ),
         IconButton(
           onPressed: () {},

@@ -7,8 +7,39 @@ import 'package:untitled3/core/utils/shimmer/custom_loading_feature.dart';
 import 'package:untitled3/features/home/presentation/cubit/featured_books_cubit/featured_books_cubit.dart';
 import 'package:untitled3/features/home/presentation/views/widget/custom_book_image.dart';
 
-class FeatureBooksListView extends StatelessWidget {
+class FeatureBooksListView extends StatefulWidget {
   const FeatureBooksListView({super.key});
+
+  @override
+  State<FeatureBooksListView> createState() => _FeatureBooksListViewState();
+}
+
+class _FeatureBooksListViewState extends State<FeatureBooksListView> {
+  late ScrollController scrollController;
+  var nextPage = 1;
+  @override
+  void initState() {
+    scrollController = ScrollController();
+
+    scrollController.addListener(_scrollController);
+
+    super.initState();
+  }
+
+  void _scrollController() {
+    var curantPosition = scrollController.position.pixels;
+    var maxScroll = scrollController.position.maxScrollExtent;
+
+    if (curantPosition >= 0.7 * maxScroll) {
+      FeaturedBooksCubit.get(context).getData(pageNumber: nextPage++);
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    scrollController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +49,7 @@ class FeatureBooksListView extends StatelessWidget {
         return SizedBox(
           height: MediaQuery.of(context).size.height * .3,
           child: ListView.builder(
+            controller: scrollController,
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: state.books.length,
