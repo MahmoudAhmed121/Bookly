@@ -10,13 +10,21 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
   FeaturedBooksCubit(this.homeRepoImpl) : super(FeaturedBooksInitial());
   HomeRepoImpl homeRepoImpl;
   static FeaturedBooksCubit get(context) => BlocProvider.of(context);
- Future< void >getData({int pageNumber = 0}) async {
+  Future<void> getData({int pageNumber = 0}) async {
     final data = await homeRepoImpl.fetchFeaturedBooks(pageNumber: pageNumber);
-
-    emit(FeaturedBooksLoading());
+    if (pageNumber == 0) {
+      emit(FeaturedBooksLoading());
+    } else {
+      emit(FeaturedPaginationLoading());
+    }
 
     data.fold((failuer) {
-      emit(FeaturedBooksFailure(failuer.errMessage));
+      if (pageNumber == 0) {
+        
+        emit(FeaturedBooksFailure(failuer.errMessage));
+      } else {
+        emit(FeaturedPaginationFailure(errMessage: failuer.errMessage));
+      }
     }, (books) {
       emit(FeaturedBooksSuccess(books.cast<BookModel>()));
     });

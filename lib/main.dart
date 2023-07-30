@@ -19,8 +19,8 @@ void main() async {
   Hive.registerAdapter(VolumeInfoAdapter());
   Hive.registerAdapter(ImageLinksAdapter());
   Hive.openBox<BookModel>(kBookModelBook);
-  Hive.openBox<ImageLinks>(kImageLinksBook);
-  Hive.openBox<VolumeInfo>(kVolumeInfoBook);
+  Hive.openBox<BookModel>(kNewsetBooksBook);
+
   
   // Hive.openBox<BookModel>('kImagek');
   runApp(const Splac());

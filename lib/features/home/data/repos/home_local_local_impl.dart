@@ -20,7 +20,6 @@ class HomeLocalImpl extends HomeLocalRepo {
     int lenght = bookLocal.values.length;
 
     if (startIndex >= lenght || endIndex > lenght) {
-      print("$lenght");
       return [];
     }
 
@@ -28,9 +27,18 @@ class HomeLocalImpl extends HomeLocalRepo {
   }
 
   @override
-  List<BookModel> fetchNewsetBooks() {
-    var bookLocal = Hive.box<BookModel>(kVolumeInfoBook);
+  List<BookModel> fetchNewsetBooks({int pageNumber = 0}) {
+    var bookLocal = Hive.box<BookModel>(kNewsetBooksBook);
 
-    return bookLocal.values.toList();
+    var startIndex = pageNumber * 10;
+    var endIndex = (pageNumber + 1) * 10;
+    int lenghtNews = bookLocal.values.length;
+    print(startIndex);
+    print(endIndex);
+    print(lenghtNews);
+    if (pageNumber >= lenghtNews || endIndex > lenghtNews) {
+      return [];
+    }
+    return bookLocal.values.toList().sublist(startIndex, endIndex);
   }
 }

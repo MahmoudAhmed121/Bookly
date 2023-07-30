@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:untitled3/features/home/presentation/views/widget/best_seller_list_view.dart';
 import 'package:untitled3/features/home/presentation/views/widget/custom_app_bar.dart';
-
 import 'package:untitled3/features/home/presentation/views/widget/feature_book_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -12,46 +10,41 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      physics: BouncingScrollPhysics(),
-      slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 30,
-                  ),
-                  child: CustomAppBar()),
-              FeatureBooksListView(),
-              SizedBox(
-                height: 50,
+    return const SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 30,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
-                child: Text(
-                  "Best Seller",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-            ],
+              child: CustomAppBar()),
+          FeatureBooksListView(),
+          SizedBox(
+            height: 50,
           ),
-        ),
-        SliverFillRemaining(
-          child: Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
-            child: ListViewBestSeller(),
+            child: Text(
+              "Best Seller",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
           ),
-        ),
-      ],
+          SizedBox(
+            height: 20,
+          ),
+           Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: ListViewBestSeller(),
+            ),
+        ],
+      ),
     );
+       
+    
   }
 }
